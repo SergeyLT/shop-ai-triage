@@ -94,12 +94,14 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
+      - name: Validate Coolify webhook URL
+        run: python scripts/validate_coolify_webhook.py
       - name: Trigger Coolify deployment
         shell: bash
         run: |
-          test -n "$COOLIFY_WEBHOOK" && test -n "$COOLIFY_TOKEN" && test -n "$PUBLIC_BASE_URL"
+          test -n "$COOLIFY_TOKEN" && test -n "$PUBLIC_BASE_URL"
           curl --fail --silent --show-error --output /dev/null \
-            --request GET "$COOLIFY_WEBHOOK" \
+            --request POST "$COOLIFY_WEBHOOK" \
             --header "Authorization: Bearer $COOLIFY_TOKEN"
       - name: Confirm deployed version
         run: python scripts/check_health.py "$PUBLIC_BASE_URL" "$GITHUB_SHA"

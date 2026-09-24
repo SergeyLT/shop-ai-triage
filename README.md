@@ -118,8 +118,8 @@ Production использует готовый образ из GHCR и [compose.
 
 1. Создайте в Coolify Docker Compose-приложение по файлу `compose.coolify.yml`. Укажите `GHCR_IMAGE` в виде `ghcr.io/<владелец>/<репозиторий>` строчными буквами. Для приватного образа настройте доступ Coolify к GHCR только на чтение.
 2. Задайте в Coolify разные значения `TRIAGE_API_KEY` и `PROXYAPI_API_KEY`. Остальные настройки имеют значения по умолчанию в Compose и могут быть изменены через окружение. Подключите домен с HTTPS и постоянный том `triage-data`.
-3. Отключите автоматический деплой из Git в Coolify: запуск будет приходить из GitHub Actions через deploy webhook. Создайте токен Coolify с правом Deploy.
-4. В GitHub задайте секреты `COOLIFY_WEBHOOK` и `COOLIFY_TOKEN`, а публичный адрес без завершающего `/health` — переменной репозитория `PUBLIC_BASE_URL`. После push в `main` проверьте результат workflow и версию в `/health`.
+3. Отключите автоматический деплой из Git в Coolify: запуск будет приходить из GitHub Actions. В настройках приложения Coolify откройте Configuration → Webhooks и скопируйте **Deploy Webhook (auth required)** вида `https://<адрес-coolify>/api/v1/deploy?uuid=<uuid>&force=false`. Создайте API-токен Coolify с правом Deploy. Webhook событий GitHub из раздела Manual Git Webhooks для этого workflow не подходит.
+4. В GitHub задайте секреты `COOLIFY_WEBHOOK` (скопированный адрес) и `COOLIFY_TOKEN` (API-токен), а публичный адрес без завершающего `/health` — переменной репозитория `PUBLIC_BASE_URL`. Workflow проверяет тип адреса и отправляет `POST` для запуска деплоя. После push в `main` проверьте результат workflow и версию в `/health`.
 
 SQLite рассчитана на один экземпляр приложения. Перед обновлением схемы или удалением тома создайте согласованную резервную копию через `python -m shop_triage.backup /data/backups/<имя>.sqlite3` внутри контейнера и перенесите файл в отдельное хранилище. Для отката используйте неизменяемый SHA-тег предыдущего рабочего образа.
 
