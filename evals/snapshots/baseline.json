@@ -1,0 +1,288 @@
+{
+  "created_at_utc": "2026-09-24T17:41:02.326040+00:00",
+  "health_version": "local",
+  "case_count": 20,
+  "results": [
+    {
+      "id": "B01",
+      "http_status": 200,
+      "response": {
+        "category": "billing",
+        "draft_reply": "Понимаем, что за один заказ вы видите два списания. Чтобы проверить платежи, пожалуйста, сообщите номер заказа, суммы и даты списаний.",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "B02",
+      "http_status": 200,
+      "response": {
+        "category": "billing",
+        "draft_reply": "Понимаю: вы оплатили заказ, но в личном кабинете он отображается как неоплаченный. Пришлите, пожалуйста, номер заказа и подтверждение платежа, чтобы оператор мог разобраться в ситуации.",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "B03",
+      "http_status": 200,
+      "response": {
+        "category": "billing",
+        "draft_reply": "Понимаем ваш вопрос о возврате денег на карту. По этому сообщению мы не можем определить срок зачисления; пожалуйста, укажите номер заказа, чтобы можно было уточнить информацию.",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "B04",
+      "http_status": 200,
+      "response": {
+        "category": "billing",
+        "draft_reply": "Понимаем, что после оплаты заказа электронный чек не пришёл. Проверьте, пожалуйста, папку «Спам» и адрес электронной почты, указанный при оформлении. Если чек не найдётся, сообщите номер заказа и адрес электронной почты, на который он должен был прийти.",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "B05",
+      "http_status": 200,
+      "response": {
+        "category": "billing",
+        "draft_reply": "Понимаем, что вы хотите вернуть оплату за заказ. Уточните, пожалуйста, номер заказа, чтобы мы могли рассмотреть ваш запрос.",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "S01",
+      "http_status": 200,
+      "response": {
+        "category": "support",
+        "draft_reply": "Пожалуйста, пришлите номер заказа — без него нельзя определить, о каком заказе идёт речь.",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "category": true,
+        "escalate": false
+      }
+    },
+    {
+      "id": "S02",
+      "http_status": 200,
+      "response": {
+        "category": "complaint",
+        "draft_reply": "Сожалеем, что посылка не пришла в указанный срок. Пожалуйста, сообщите номер заказа, чтобы можно было разобраться в ситуации.",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "category": false,
+        "escalate": true
+      }
+    },
+    {
+      "id": "S03",
+      "http_status": 200,
+      "response": {
+        "category": "support",
+        "draft_reply": "Пожалуйста, укажите номер заказа и правильный номер квартиры. Мы проверим, возможно ли изменить адрес доставки.",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "S04",
+      "http_status": 200,
+      "response": {
+        "category": "support",
+        "draft_reply": "Пожалуйста, пришлите номер заказа и ссылку на отслеживание из письма. Если появляется сообщение об ошибке, приложите скриншот.",
+        "confidence": "high",
+        "escalate": false
+      },
+      "auto": {
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "S05",
+      "http_status": 200,
+      "response": {
+        "category": "support",
+        "draft_reply": "Попробуйте проверить правильность логина и пароля, а также воспользоваться восстановлением пароля. Если ошибка повторится, напишите, пожалуйста, её текст и укажите, с какого устройства вы входите.",
+        "confidence": "high",
+        "escalate": false
+      },
+      "auto": {
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "S06",
+      "http_status": 200,
+      "response": {
+        "category": "support",
+        "draft_reply": "По одному статусу «собирается» нельзя подтвердить, что заказ уже отправлен. Проверьте, пожалуйста, указаны ли в карточке заказа статус отправки или трек-номер.",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "C01",
+      "http_status": 200,
+      "response": {
+        "category": "complaint",
+        "draft_reply": "Сожалеем, что кружка пришла с трещиной и качество заказа вас расстроило. Пожалуйста, сообщите номер заказа и приложите фото повреждения, чтобы мы могли разобраться в ситуации.",
+        "confidence": "high",
+        "escalate": true
+      },
+      "auto": {
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "C02",
+      "http_status": 200,
+      "response": {
+        "category": "complaint",
+        "draft_reply": "Сожалеем, что курьер разговаривал с вами грубо. Чтобы мы могли передать жалобу на рассмотрение, укажите, пожалуйста, номер заказа и дату доставки.",
+        "confidence": "high",
+        "escalate": true
+      },
+      "auto": {
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "C03",
+      "http_status": 200,
+      "response": {
+        "category": "complaint",
+        "draft_reply": "Извините, что вместо синей лампы вы получили красную, тем более что это произошло уже во второй раз. Чтобы разобраться в ситуации, укажите, пожалуйста, номер заказа; если возможно, приложите фото полученной лампы.",
+        "confidence": "high",
+        "escalate": true
+      },
+      "auto": {
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "C04",
+      "http_status": 200,
+      "response": {
+        "category": "complaint",
+        "draft_reply": "Сожалеем, что комплектация полученного товара не совпала с указанной на странице. Пришлите, пожалуйста, номер заказа и фото полученной комплектации, чтобы мы могли разобраться в ситуации.",
+        "confidence": "high",
+        "escalate": false
+      },
+      "auto": {
+        "category": true,
+        "escalate": false
+      }
+    },
+    {
+      "id": "C05",
+      "http_status": 200,
+      "response": {
+        "category": "complaint",
+        "draft_reply": "Понимаю, что вы хотите подать жалобу. Если решите продолжить, опишите, пожалуйста, ситуацию — это поможет разобраться.",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "O01",
+      "http_status": 200,
+      "response": {
+        "category": "support",
+        "draft_reply": "Здравствуйте! Подскажите, пожалуйста, цвет или другие отличительные особенности термокружки — это поможет найти модель. Наличие термокружек объёмом 500 мл нужно уточнить по каталогу.",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "category": false,
+        "escalate": true
+      }
+    },
+    {
+      "id": "O02",
+      "http_status": 200,
+      "response": {
+        "category": "other",
+        "draft_reply": "Здравствуйте! Чем мы можем вам помочь?",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "category": true,
+        "escalate": false
+      }
+    },
+    {
+      "id": "O03",
+      "http_status": 200,
+      "response": {
+        "category": "other",
+        "draft_reply": "Мы не можем проверить время прибытия такси CityRide; пожалуйста, уточните его в приложении или службе поддержки CityRide.",
+        "confidence": "high",
+        "escalate": false
+      },
+      "auto": {
+        "category": true,
+        "escalate": false
+      }
+    },
+    {
+      "id": "O04",
+      "http_status": 200,
+      "response": {
+        "category": "support",
+        "draft_reply": "Здравствуйте! Уточните, пожалуйста, с чем именно вам нужна помощь, и мы постараемся разобраться.",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "category": false,
+        "escalate": true
+      }
+    }
+  ]
+}
+

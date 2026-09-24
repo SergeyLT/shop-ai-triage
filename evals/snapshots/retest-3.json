@@ -1,0 +1,38 @@
+{
+  "created_at_utc": "2026-09-24T17:49:25.170399+00:00",
+  "health_version": "local",
+  "case_count": 2,
+  "results": [
+    {
+      "id": "C02",
+      "http_status": 200,
+      "response": {
+        "category": "complaint",
+        "draft_reply": "Сожалеем, что курьер грубо разговаривал с вами. Чтобы мы могли разобраться в ситуации, укажите, пожалуйста, номер заказа и кратко опишите, когда это произошло.",
+        "confidence": "high",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "C04",
+      "http_status": 200,
+      "response": {
+        "category": "complaint",
+        "draft_reply": "Сожалеем, что комплектация полученного товара не совпадает с указанной на странице. Пожалуйста, сообщите номер заказа и опишите, чего именно не хватает или что отличается.",
+        "confidence": "high",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    }
+  ]
+}
+

@@ -1,0 +1,24 @@
+services:
+  api:
+    build:
+      context: .
+      args:
+        APP_VERSION: local
+    env_file:
+      - .env
+    environment:
+      DATABASE_PATH: /data/tickets.sqlite3
+    ports:
+      - "${HOST_PORT:-8000}:8000"
+    volumes:
+      - triage-data:/data
+    restart: unless-stopped
+    stop_grace_period: 20s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  triage-data:

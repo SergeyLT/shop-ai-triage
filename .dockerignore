@@ -1,0 +1,17 @@
+.git
+.github
+.venv
+.env
+.env.*
+.tmp
+.pytest_cache
+.mypy_cache
+.ruff_cache
+output
+ignore
+AGENTS.md
+.codex
+tests
+__pycache__
+*.pyc
+*.egg-info

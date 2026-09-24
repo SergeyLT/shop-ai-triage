@@ -1,0 +1,38 @@
+{
+  "created_at_utc": "2026-09-24T17:51:22.685588+00:00",
+  "health_version": "local",
+  "case_count": 2,
+  "results": [
+    {
+      "id": "S05",
+      "http_status": 200,
+      "response": {
+        "category": "support",
+        "draft_reply": "Опишите, пожалуйста, какой именно текст ошибки появляется после ввода пароля. Не отправляйте пароль или данные карты.",
+        "confidence": "high",
+        "escalate": false
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "C04",
+      "http_status": 200,
+      "response": {
+        "category": "complaint",
+        "draft_reply": "Извините, что комплектация полученного товара отличается от указанной на странице. Чтобы разобраться, сообщите номер заказа и уточните, что было указано в описании и что вы получили.",
+        "confidence": "high",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    }
+  ]
+}
+

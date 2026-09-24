@@ -1,0 +1,53 @@
+{
+  "created_at_utc": "2026-09-24T17:48:01.139802+00:00",
+  "health_version": "local",
+  "case_count": 3,
+  "results": [
+    {
+      "id": "S01",
+      "http_status": 200,
+      "response": {
+        "category": "support",
+        "draft_reply": "Пришлите, пожалуйста, номер заказа — проверим его статус.",
+        "confidence": "high",
+        "escalate": false
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "S04",
+      "http_status": 200,
+      "response": {
+        "category": "support",
+        "draft_reply": "Пришлите, пожалуйста, номер заказа и текст ошибки или скриншот страницы. Если можете, приложите саму ссылку на отслеживание; личные данные и пароли отправлять не нужно.",
+        "confidence": "high",
+        "escalate": false
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "C04",
+      "http_status": 200,
+      "response": {
+        "category": "complaint",
+        "draft_reply": "Сожалеем, что комплектация полученного товара не совпала с указанной на странице. Передадим обращение оператору для проверки. Пожалуйста, пришлите номер заказа и фото полученного товара и его комплектации.",
+        "confidence": "high",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    }
+  ]
+}
+
