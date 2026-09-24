@@ -28,6 +28,8 @@ jobs:
         run: python -m ruff check .
       - name: Type check
         run: python -m mypy src
+      - name: Prepare test directory
+        run: mkdir -p .tmp
       - name: Tests
         run: python -m pytest
 
