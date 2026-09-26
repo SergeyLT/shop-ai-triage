@@ -1,0 +1,112 @@
+{
+  "created_at_utc": "2026-09-25T10:21:15.266391+00:00",
+  "health_version": "eval-final-v2-recovery-20260925",
+  "case_count": 7,
+  "results": [
+    {
+      "id": "S06",
+      "http_status": 200,
+      "response": {
+        "category": "support",
+        "draft_reply": "Статус «собирается» сам по себе не подтверждает, что заказ уже отправлен. Пришлите номер заказа, и мы уточним его статус.",
+        "confidence": "high",
+        "escalate": false
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": false
+      }
+    },
+    {
+      "id": "C04",
+      "http_status": 200,
+      "response": {
+        "category": "complaint",
+        "draft_reply": "Сожалеем, что комплектация полученного товара отличается от указанной на странице. Пожалуйста, сообщите номер заказа и уточните, чего именно не хватает или что отличается.",
+        "confidence": "high",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "C05",
+      "http_status": 200,
+      "response": {
+        "category": "complaint",
+        "draft_reply": "Понимаю, что вы хотите пожаловаться. Если решите продолжить, напишите, пожалуйста, что произошло и, если это связано с заказом, укажите его номер.",
+        "confidence": "high",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "O01",
+      "http_status": 200,
+      "response": {
+        "category": "other",
+        "draft_reply": "Не могу подтвердить наличие без каталога. Подскажите, пожалуйста, какие ещё характеристики термокружки вам важны — например, цвет или тип крышки?",
+        "confidence": "high",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "O02",
+      "http_status": 200,
+      "response": {
+        "category": "other",
+        "draft_reply": "Здравствуйте! Чем могу помочь?",
+        "confidence": "high",
+        "escalate": false
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "O03",
+      "http_status": 200,
+      "response": {
+        "category": "other",
+        "draft_reply": "По вопросам поездки и времени прибытия такси обратитесь, пожалуйста, в поддержку приложения CityRide.",
+        "confidence": "high",
+        "escalate": false
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "O04",
+      "http_status": 200,
+      "response": {
+        "category": "other",
+        "draft_reply": "Пожалуйста, расскажите, с чем именно нужна помощь, и опишите ситуацию подробнее.",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    }
+  ]
+}

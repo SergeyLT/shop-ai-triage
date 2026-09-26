@@ -1,0 +1,307 @@
+{
+  "created_at_utc": "2026-09-25T10:19:27.915826+00:00",
+  "health_version": "eval-final-v2-20260925",
+  "case_count": 20,
+  "results": [
+    {
+      "id": "B01",
+      "http_status": 200,
+      "response": {
+        "category": "billing",
+        "draft_reply": "Понимаю, что за один заказ с карты списали деньги дважды. Укажите, пожалуйста, номер заказа для проверки; не отправляйте полный номер карты или другие данные карты.",
+        "confidence": "high",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "B02",
+      "http_status": 200,
+      "response": {
+        "category": "billing",
+        "draft_reply": "Понимаю, что статус заказа не обновился после оплаты. Укажите, пожалуйста, номер заказа, дату и сумму платежа — не отправляйте полные данные карты.",
+        "confidence": "high",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "B03",
+      "http_status": 200,
+      "response": {
+        "category": "billing",
+        "draft_reply": "Не могу подтвердить срок возврата без проверки заказа. Напишите, пожалуйста, его номер — нужно уточнить статус возврата средств.",
+        "confidence": "high",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "B04",
+      "http_status": 200,
+      "response": {
+        "category": "billing",
+        "draft_reply": "Понимаем. Укажите, пожалуйста, номер заказа — нужно проверить, почему не пришёл электронный чек.",
+        "confidence": "high",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "B05",
+      "http_status": 200,
+      "response": {
+        "category": "billing",
+        "draft_reply": "Понимаю, вы хотите вернуть оплату. Укажите номер заказа, чтобы можно было разобраться с запросом на возврат.",
+        "confidence": "high",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "S01",
+      "http_status": 200,
+      "response": {
+        "category": "support",
+        "draft_reply": "Пришлите, пожалуйста, номер заказа — постараемся уточнить его статус.",
+        "confidence": "high",
+        "escalate": false
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "S02",
+      "http_status": 200,
+      "response": {
+        "category": "support",
+        "draft_reply": "Извините, что посылка не пришла в ожидаемый срок. Уточните, пожалуйста, номер заказа, чтобы можно было проверить ситуацию.",
+        "confidence": "high",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "S03",
+      "http_status": 200,
+      "response": {
+        "category": "support",
+        "draft_reply": "Изменение адреса уже оформленного заказа требует проверки оператором. Укажите номер заказа и правильный номер квартиры.",
+        "confidence": "high",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "S04",
+      "http_status": 200,
+      "response": {
+        "category": "support",
+        "draft_reply": "Пришлите, пожалуйста, номер заказа и текст ошибки или скриншот того, что отображается при открытии ссылки. Личные данные и пароли на скриншоте лучше скрыть.",
+        "confidence": "high",
+        "escalate": false
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "S05",
+      "http_status": 200,
+      "response": {
+        "category": "support",
+        "draft_reply": "Попробуйте ещё раз войти и напишите точный текст ошибки. Пароль не отправляйте.",
+        "confidence": "high",
+        "escalate": false
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "S06",
+      "http_status": 200,
+      "response": {
+        "category": "other",
+        "draft_reply": "Не удалось подготовить ответ автоматически. Обращение требует проверки оператором.",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": false,
+        "category": false,
+        "escalate": false
+      }
+    },
+    {
+      "id": "C01",
+      "http_status": 200,
+      "response": {
+        "category": "complaint",
+        "draft_reply": "Сожалеем, что кружка пришла с трещиной. Уточните, пожалуйста, номер заказа и приложите фото повреждения, чтобы можно было разобраться в ситуации.",
+        "confidence": "high",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "C02",
+      "http_status": 200,
+      "response": {
+        "category": "complaint",
+        "draft_reply": "Сожалеем, что курьер разговаривал с вами грубо. Пожалуйста, укажите номер заказа и кратко опишите ситуацию, чтобы можно было разобраться с жалобой.",
+        "confidence": "high",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "C03",
+      "http_status": 200,
+      "response": {
+        "category": "complaint",
+        "draft_reply": "Понимаю, как неприятно получить не ту лампу, тем более во второй раз. Уточните, пожалуйста, номер заказа; если удобно, приложите фото полученной лампы и упаковки, чтобы разобраться в ситуации.",
+        "confidence": "high",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": true,
+        "category": true,
+        "escalate": true
+      }
+    },
+    {
+      "id": "C04",
+      "http_status": 200,
+      "response": {
+        "category": "other",
+        "draft_reply": "Не удалось подготовить ответ автоматически. Обращение требует проверки оператором.",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": false,
+        "category": false,
+        "escalate": false
+      }
+    },
+    {
+      "id": "C05",
+      "http_status": 200,
+      "response": {
+        "category": "other",
+        "draft_reply": "Не удалось подготовить ответ автоматически. Обращение требует проверки оператором.",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": false,
+        "category": false,
+        "escalate": false
+      }
+    },
+    {
+      "id": "O01",
+      "http_status": 200,
+      "response": {
+        "category": "other",
+        "draft_reply": "Не удалось подготовить ответ автоматически. Обращение требует проверки оператором.",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": false,
+        "category": false,
+        "escalate": false
+      }
+    },
+    {
+      "id": "O02",
+      "http_status": 200,
+      "response": {
+        "category": "other",
+        "draft_reply": "Не удалось подготовить ответ автоматически. Обращение требует проверки оператором.",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": false,
+        "category": false,
+        "escalate": false
+      }
+    },
+    {
+      "id": "O03",
+      "http_status": 200,
+      "response": {
+        "category": "other",
+        "draft_reply": "Не удалось подготовить ответ автоматически. Обращение требует проверки оператором.",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": false,
+        "category": false,
+        "escalate": false
+      }
+    },
+    {
+      "id": "O04",
+      "http_status": 200,
+      "response": {
+        "category": "other",
+        "draft_reply": "Не удалось подготовить ответ автоматически. Обращение требует проверки оператором.",
+        "confidence": "low",
+        "escalate": true
+      },
+      "auto": {
+        "model_result": false,
+        "category": false,
+        "escalate": false
+      }
+    }
+  ]
+}

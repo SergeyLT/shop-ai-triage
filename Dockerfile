@@ -7,7 +7,7 @@ ENV APP_VERSION=${APP_VERSION} \
     PYTHONUNBUFFERED=1
 
 WORKDIR /app
-COPY pyproject.toml README.md logging.json ./
+COPY pyproject.toml README.md LICENSE logging.json ./
 COPY src ./src
 
 RUN pip install --no-cache-dir . \

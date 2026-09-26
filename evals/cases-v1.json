@@ -84,7 +84,7 @@
     "text": "В карточке заказа вижу статус «собирается». Это значит, что его уже отправили?",
     "channel": "form",
     "expected_category": "support",
-    "expected_escalate": false,
+    "expected_escalate": true,
     "draft_check": "Не утверждать отправку; для точного ответа предложить проверить заказ."
   },
   {
