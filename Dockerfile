@@ -10,7 +10,9 @@ WORKDIR /app
 COPY pyproject.toml README.md LICENSE logging.json ./
 COPY src ./src
 
-RUN pip install --no-cache-dir . \
+# COPY сохраняет права исходных файлов: сборка должна работать и при umask 077.
+RUN chmod -R a+rX /app \
+    && pip install --no-cache-dir . \
     && useradd --create-home --uid 10001 app \
     && mkdir -p /data \
     && chown app:app /data
