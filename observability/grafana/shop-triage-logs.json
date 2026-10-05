@@ -1,0 +1,221 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_LOKI",
+      "label": "Loki",
+      "description": "Источник логов приложения",
+      "type": "datasource",
+      "pluginId": "loki",
+      "pluginName": "Loki"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "datasource",
+      "id": "loki",
+      "name": "Loki",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "logs",
+      "name": "Logs",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.0.0"
+    }
+  ],
+  "annotations": {
+    "list": []
+  },
+  "editable": true,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "id": 1,
+      "type": "text",
+      "title": "Как найти события обращения",
+      "gridPos": { "h": 3, "w": 24, "x": 0, "y": 0 },
+      "options": {
+        "mode": "markdown",
+        "content": "**1.** Выполните `POST /triage` и скопируйте `X-Request-ID` из заголовка ответа. **2.** Вставьте ID в фильтр `Request ID` сверху и нажмите Enter. **3.** Смотрите события обработки, итог и HTTP-результат ниже. Панель «Последние вызовы» всегда показывает недавние запросы и помогает найти ID. Если записей нет, расширьте интервал времени в правом верхнем углу."
+      }
+    },
+    {
+      "id": 2,
+      "type": "logs",
+      "title": "Последние вызовы /triage · все Request ID",
+      "description": "Последние HTTP-вызовы /triage; фильтр Request ID на эту панель не влияет.",
+      "datasource": { "type": "loki", "uid": "${DS_LOKI}" },
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 3 },
+      "options": {
+        "showTime": true,
+        "showLabels": false,
+        "showCommonLabels": false,
+        "wrapLogMessage": true,
+        "prettifyLogMessage": false,
+        "enableLogDetails": true,
+        "dedupStrategy": "none",
+        "sortOrder": "Descending"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": { "type": "loki", "uid": "${DS_LOKI}" },
+          "queryType": "range",
+          "expr": "{compose_service=~\".+\"} | json | __error__=\"\" | service=\"shop-triage\" | event=\"request_completed\" | route=\"/triage\" | line_format \"request_id={{.request_id}} · HTTP {{.status}} · {{.duration_ms}} мс · версия {{.version}}\"",
+          "maxLines": 200,
+          "direction": "backward"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "logs",
+      "title": "Все события выбранного запроса",
+      "description": "Полные JSON-записи с одним request_id; нажмите на строку для просмотра полей.",
+      "datasource": { "type": "loki", "uid": "${DS_LOKI}" },
+      "gridPos": { "h": 12, "w": 24, "x": 0, "y": 11 },
+      "options": {
+        "showTime": true,
+        "showLabels": false,
+        "showCommonLabels": false,
+        "wrapLogMessage": true,
+        "prettifyLogMessage": true,
+        "enableLogDetails": true,
+        "dedupStrategy": "none",
+        "sortOrder": "Ascending"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": { "type": "loki", "uid": "${DS_LOKI}" },
+          "queryType": "range",
+          "expr": "{compose_service=~\".+\"} | json | __error__=\"\" | service=\"shop-triage\" | request_id=~\"${request_id:raw}\"",
+          "maxLines": 1000,
+          "direction": "backward"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "logs",
+      "title": "Итог обработки",
+      "description": "Категория, уверенность, необходимость оператора и расход токенов выбранного запроса.",
+      "datasource": { "type": "loki", "uid": "${DS_LOKI}" },
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 23 },
+      "options": {
+        "showTime": true,
+        "showLabels": false,
+        "showCommonLabels": false,
+        "wrapLogMessage": true,
+        "prettifyLogMessage": false,
+        "enableLogDetails": true,
+        "dedupStrategy": "none",
+        "sortOrder": "Descending"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": { "type": "loki", "uid": "${DS_LOKI}" },
+          "queryType": "range",
+          "expr": "{compose_service=~\".+\"} | json | __error__=\"\" | service=\"shop-triage\" | event=\"triage_completed\" | request_id=~\"${request_id:raw}\" | line_format \"{{.category}} · confidence={{.confidence}} · escalate={{.escalate}} · tokens={{.total_tokens}} · request_id={{.request_id}}\"",
+          "maxLines": 200,
+          "direction": "backward"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "logs",
+      "title": "HTTP-результат",
+      "description": "Статус и длительность /triage для выбранного запроса.",
+      "datasource": { "type": "loki", "uid": "${DS_LOKI}" },
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 23 },
+      "options": {
+        "showTime": true,
+        "showLabels": false,
+        "showCommonLabels": false,
+        "wrapLogMessage": true,
+        "prettifyLogMessage": false,
+        "enableLogDetails": true,
+        "dedupStrategy": "none",
+        "sortOrder": "Descending"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": { "type": "loki", "uid": "${DS_LOKI}" },
+          "queryType": "range",
+          "expr": "{compose_service=~\".+\"} | json | __error__=\"\" | service=\"shop-triage\" | event=\"request_completed\" | route=\"/triage\" | request_id=~\"${request_id:raw}\" | line_format \"HTTP {{.status}} · {{.duration_ms}} мс · версия {{.version}} · request_id={{.request_id}}\"",
+          "maxLines": 200,
+          "direction": "backward"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "type": "logs",
+      "title": "Ошибки и безопасный fallback",
+      "description": "Сбои модели, лимита токенов и хранилища для выбранного запроса.",
+      "datasource": { "type": "loki", "uid": "${DS_LOKI}" },
+      "gridPos": { "h": 9, "w": 24, "x": 0, "y": 31 },
+      "options": {
+        "showTime": true,
+        "showLabels": false,
+        "showCommonLabels": false,
+        "wrapLogMessage": true,
+        "prettifyLogMessage": true,
+        "enableLogDetails": true,
+        "dedupStrategy": "none",
+        "sortOrder": "Descending"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": { "type": "loki", "uid": "${DS_LOKI}" },
+          "queryType": "range",
+          "expr": "{compose_service=~\".+\"} | json | __error__=\"\" | service=\"shop-triage\" | event=~\"provider_request_failed|token_budget_exhausted|token_budget_failed|rate_limit_failed|audit_write_failed|health_check_failed\" | request_id=~\"${request_id:raw}\"",
+          "maxLines": 500,
+          "direction": "backward"
+        }
+      ]
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 39,
+  "tags": ["shop-triage", "loki", "logs"],
+  "templating": {
+    "list": [
+      {
+        "name": "request_id",
+        "label": "Request ID",
+        "type": "textbox",
+        "description": "Значение X-Request-ID из HTTP-ответа; .* показывает все запросы.",
+        "query": ".*",
+        "current": { "selected": true, "text": ".*", "value": ".*" },
+        "options": [{ "selected": true, "text": ".*", "value": ".*" }],
+        "hide": 0,
+        "skipUrlSync": false
+      }
+    ]
+  },
+  "time": { "from": "now-6h", "to": "now" },
+  "timepicker": {},
+  "timezone": "utc",
+  "title": "Shop Triage · логи запросов",
+  "uid": "shop-triage-logs",
+  "version": 1
+}
